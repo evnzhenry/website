@@ -28,6 +28,8 @@
 **/yarn-debug.log*
 **/yarn-error.log*
 **/*.log
+**/lint_*.txt
+**/build_error.*
 
 # IDEs
 **/.idea

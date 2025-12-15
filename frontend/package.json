@@ -27,6 +27,7 @@
     "zod": "^4.1.13"
   },
   "devDependencies": {
+    "@netlify/plugin-nextjs": "^5.15.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
