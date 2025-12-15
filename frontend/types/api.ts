@@ -14,7 +14,7 @@ export interface CreditorAccount {
     provider_name?: string
     account_number: string
     currency: string
-    is_default: boolean
+    is_default?: boolean
     created_at: string
 }
 
@@ -51,6 +51,14 @@ export interface LoanApplication {
     national_id_file?: string
     photo_file?: string
     timeline?: TimelineEvent[]
+    disbursement_date?: string
+    payout_details?: {
+        type: string
+        bank_name?: string
+        account_number?: string
+        mobile_phone?: string
+        account_name?: string
+    }
 }
 
 export interface ApplicationSubmitRequest {

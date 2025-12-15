@@ -15,7 +15,13 @@ export default function SettingsPage() {
     const [accounts, setAccounts] = useState<CreditorAccount[]>([])
     const [loadingAccounts, setLoadingAccounts] = useState(false)
     const [isAddingAccount, setIsAddingAccount] = useState(false)
-    const [newAccount, setNewAccount] = useState({
+    const [newAccount, setNewAccount] = useState<{
+        type: 'bank' | 'mobile_money'
+        name: string
+        provider_name: string
+        account_number: string
+        currency: string
+    }>({
         type: 'bank',
         name: '',
         provider_name: '',
@@ -185,7 +191,7 @@ export default function SettingsPage() {
                                             <select
                                                 className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm"
                                                 value={newAccount.type}
-                                                onChange={(e) => setNewAccount({ ...newAccount, type: e.target.value })}
+                                                onChange={(e) => setNewAccount({ ...newAccount, type: e.target.value as "bank" | "mobile_money" })}
                                             >
                                                 <option value="bank">Bank Account</option>
                                                 <option value="mobile_money">Mobile Money</option>

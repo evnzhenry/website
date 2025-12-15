@@ -15,21 +15,7 @@ const checkStatusSchema = z.object({
 
 type CheckStatusData = z.infer<typeof checkStatusSchema>
 
-interface LoanApplication {
-    id: number
-    loan_amount: number
-    loan_purpose: string
-    created_at: string
-    status: string
-    disbursement_date?: string
-    payout_details?: {
-        type: string
-        bank_name?: string
-        account_number?: string
-        mobile_phone?: string
-        account_name?: string
-    }
-}
+import { LoanApplication } from "@/types/api"
 
 export function StatusCheckForm() {
     const [step, setStep] = useState<"input" | "results">("input")
@@ -56,8 +42,8 @@ export function StatusCheckForm() {
         }
     }
 
-    const getStatusBadge = (status: string) => {
-        const s = status.toLowerCase()
+    const getStatusBadge = (status?: string) => {
+        const s = (status || "Pending").toLowerCase()
         if (s.includes("disbursed")) {
             return (
                 <div className="flex items-center text-green-600 bg-green-50 px-3 py-1 rounded-full text-sm font-medium border border-green-200">
