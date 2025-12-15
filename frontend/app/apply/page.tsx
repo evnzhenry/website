@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { Container } from "@/components/layout/Container"
 import { LoanApplicationForm } from "@/components/forms/LoanApplicationForm"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card"
+import { Card, CardHeader, CardTitle } from "@/components/ui/Card"
 import { CheckCircle, Clock, Shield, FileText } from "lucide-react"
 
 export default function ApplyPage() {

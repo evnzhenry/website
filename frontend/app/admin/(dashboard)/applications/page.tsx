@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/Button"
 import { Card } from "@/components/ui/Card"
 import { apiClient } from "@/lib/api-client"
 import { LoanApplication } from "@/types/api"
-import { Eye, Loader2, Search, Filter } from "lucide-react"
+import { Eye, Loader2, Search } from "lucide-react"
 
 export default function ApplicationsPage() {
     const [applications, setApplications] = useState<LoanApplication[]>([])

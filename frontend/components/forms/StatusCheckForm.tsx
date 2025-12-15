@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
 import { Button } from "@/components/ui/Button"
 import { Card } from "@/components/ui/Card"
-import { Loader2, ArrowLeft, CheckCircle, XCircle, Clock, AlertCircle } from "lucide-react"
+import { Loader2, CheckCircle, XCircle, Clock, AlertCircle } from "lucide-react"
 import { apiClient } from "@/lib/api-client"
 
 const checkStatusSchema = z.object({

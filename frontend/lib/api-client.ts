@@ -2,10 +2,6 @@ import axios, { AxiosError, AxiosInstance } from "axios"
 import type {
     ApplicationSubmitRequest,
     ApplicationSubmitResponse,
-    OTPRequestRequest,
-    OTPRequestResponse,
-    OTPVerifyRequest,
-    OTPVerifyResponse,
     LoanStatusResponse,
     ContactSubmitRequest,
     ContactSubmitResponse,
