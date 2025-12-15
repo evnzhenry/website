@@ -1,0 +1,59 @@
+﻿
+> stronic_new@0.1.0 lint
+> eslint
+
+
+C:\Users\BMC\Desktop\Stronic_Holdings - Copy - Copy\frontend\app\admin\(auth)\login\page.tsx
+  39:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\BMC\Desktop\Stronic_Holdings - Copy - Copy\frontend\app\admin\(dashboard)\applications\page.tsx
+  10:32  warning  'Filter' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\BMC\Desktop\Stronic_Holdings - Copy - Copy\frontend\app\admin\(dashboard)\layout.tsx
+  29:9  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\BMC\Desktop\Stronic_Holdings - Copy - Copy\frontend\app\admin\(dashboard)\layout.tsx:29:9
+  27 |
+  28 |     useEffect(() => {
+> 29 |         setIsMounted(true)
+     |         ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  30 |     }, [])
+  31 |
+  32 |     useEffect(() => {  react-hooks/set-state-in-effect
+
+C:\Users\BMC\Desktop\Stronic_Holdings - Copy - Copy\frontend\app\apply\page.tsx
+  6:16  warning  'CardContent' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\BMC\Desktop\Stronic_Holdings - Copy - Copy\frontend\components\forms\LoanApplicationForm.tsx
+  105:65  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  128:25  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\BMC\Desktop\Stronic_Holdings - Copy - Copy\frontend\components\forms\StatusCheckForm.tsx
+  9:19  warning  'ArrowLeft' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\BMC\Desktop\Stronic_Holdings - Copy - Copy\frontend\lib\api-client.ts
+    5:5   warning  'OTPRequestRequest' is defined but never used   @typescript-eslint/no-unused-vars
+    6:5   warning  'OTPRequestResponse' is defined but never used  @typescript-eslint/no-unused-vars
+    7:5   warning  'OTPVerifyRequest' is defined but never used    @typescript-eslint/no-unused-vars
+    8:5   warning  'OTPVerifyResponse' is defined but never used   @typescript-eslint/no-unused-vars
+    9:5   warning  'LoanStatusResponse' is defined but never used  @typescript-eslint/no-unused-vars
+   93:84  error    Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+  109:47  error    Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+  145:49  error    Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+  156:81  error    Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+  169:36  error    Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+  169:50  error    Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+  174:58  error    Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+  179:54  error    Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+
+C:\Users\BMC\Desktop\Stronic_Holdings - Copy - Copy\frontend\types\api.ts
+  92:18  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+Γ£û 21 problems (13 errors, 8 warnings)
+

@@ -36,8 +36,9 @@ export default function AdminLoginPage() {
         try {
             await apiClient.adminLogin(data)
             router.push("/admin")
-        } catch (err: any) {
-            setError(err.message || "Invalid credentials")
+        } catch (err) {
+            const message = err instanceof Error ? err.message : "Invalid credentials"
+            setError(message)
         } finally {
             setIsLoading(false)
         }

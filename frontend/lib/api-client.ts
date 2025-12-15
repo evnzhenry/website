@@ -14,6 +14,8 @@ import type {
     AdminLoginResponse,
     AdminDashboardStats,
     LoanApplication,
+    CreditorAccount,
+    ContactMessage
 } from "@/types/api"
 
 class APIClient {
@@ -90,7 +92,7 @@ class APIClient {
         return response.data
     }
 
-    async uploadDocument(applicationId: number, file: File, type: string): Promise<any> {
+    async uploadDocument(applicationId: number, file: File, type: string): Promise<unknown> {
         const formData = new FormData()
         formData.append("application_id", applicationId.toString())
         formData.append("document", file)
@@ -106,8 +108,8 @@ class APIClient {
 
     // OTP Status Check
     // Status Check
-    async checkStatus(email: string): Promise<any> {
-        const response = await this.client.post("/loan-status/check", { email })
+    async checkStatus(email: string): Promise<LoanStatusResponse> {
+        const response = await this.client.post<LoanStatusResponse>("/loan-status/check", { email })
         return response.data
     }
 
@@ -142,7 +144,7 @@ class APIClient {
         return response.data.rows || []
     }
 
-    async getContacts(status?: string): Promise<any[]> {
+    async getContacts(status?: string): Promise<ContactMessage[]> {
         const params = status ? { status } : {}
         const response = await this.client.get("/admin/contacts", { params })
         return response.data.rows || []
@@ -153,7 +155,7 @@ class APIClient {
         return response.data
     }
 
-    async updateApplicationStatus(id: string | number, status: string): Promise<any> {
+    async updateApplicationStatus(id: string | number, status: string): Promise<unknown> {
         // Using the review endpoint for now as a proxy for status update
         // In a real scenario, we'd have a dedicated status update endpoint
         const response = await this.client.post(`/admin/loans/${id}/review`, { status })
@@ -161,22 +163,22 @@ class APIClient {
     }
 
     // Creditor Accounts
-    async getCreditorAccounts(): Promise<import("@/types/api").CreditorAccount[]> {
+    async getCreditorAccounts(): Promise<CreditorAccount[]> {
         const response = await this.client.get("/admin/creditor-accounts")
         return response.data.rows || []
     }
 
-    async addCreditorAccount(data: any): Promise<any> {
+    async addCreditorAccount(data: Omit<CreditorAccount, 'id' | 'created_at'>): Promise<unknown> {
         const response = await this.client.post("/admin/creditor-accounts", data)
         return response.data
     }
 
-    async setDefaultCreditorAccount(id: number): Promise<any> {
+    async setDefaultCreditorAccount(id: number): Promise<unknown> {
         const response = await this.client.post(`/admin/creditor-accounts/${id}/set-default`)
         return response.data
     }
 
-    async deleteCreditorAccount(id: number): Promise<any> {
+    async deleteCreditorAccount(id: number): Promise<unknown> {
         const response = await this.client.delete(`/admin/creditor-accounts/${id}`)
         return response.data
     }

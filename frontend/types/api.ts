@@ -89,7 +89,7 @@ export interface ApplicationSubmitResponse {
     }
     credit: {
         score: number
-        report?: any
+        report?: Record<string, unknown>
     }
     decision: {
         approved: boolean

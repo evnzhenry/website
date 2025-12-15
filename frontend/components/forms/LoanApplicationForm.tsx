@@ -102,7 +102,7 @@ export function LoanApplicationForm() {
                 repayment_period: data.repaymentPeriod,
                 has_existing_loans: data.hasExistingLoans,
                 // Disbursement
-                disbursement_method: data.disbursementMethod as any, // Enum mismatch handling
+                disbursement_method: data.disbursementMethod as "bank" | "mobile_money",
                 bank_name: data.bankName,
                 bank_account_number: data.bankAccountNumber,
                 bank_account_name: data.bankAccountName,
@@ -125,9 +125,10 @@ export function LoanApplicationForm() {
             setSelfieFile(null)
             setIdFile(null)
             setIdFile(null)
-        } catch (error: any) {
+        } catch (error) {
             console.error("Submission error:", error)
-            alert(error.message || "Failed to submit application. Please try again.")
+            const message = error instanceof Error ? error.message : "Failed to submit application. Please try again."
+            alert(message)
         } finally {
             setIsSubmitting(false)
         }
